@@ -18,7 +18,7 @@ export default function TimelinePage() {
       action={<ActionLink href="/site-visit">Scan archive</ActionLink>}
     >
       <div className="grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
-        <SurfaceCard className="relative timeline-rail overflow-hidden">
+        <SurfaceCard className="reveal-up relative timeline-rail overflow-hidden">
           <div className="space-y-10">
             {timelineEntries.map((entry) => (
               <div key={`${entry.year}-${entry.title}`} className="relative pl-12">
@@ -58,7 +58,7 @@ export default function TimelinePage() {
                   </span>
                 </div>
 
-                <div className="mt-4 rounded-[1.75rem] bg-surface-container-low p-5 sm:p-6">
+                <div className="mt-4 rounded-[1.75rem] bg-surface-container-low px-5 py-6 sm:px-6 sm:py-7">
                   <h3 className="text-2xl font-semibold text-primary">
                     {entry.title}
                   </h3>
@@ -104,7 +104,7 @@ export default function TimelinePage() {
         </SurfaceCard>
 
         <div className="space-y-6">
-          <SurfaceCard>
+          <SurfaceCard tone="warm" className="reveal-up reveal-delay-1">
             <SectionLabel>Communication Intelligence</SectionLabel>
             <div className="rounded-[1.5rem] bg-error-container/70 p-5">
               <div className="flex items-start gap-3">
@@ -132,7 +132,7 @@ export default function TimelinePage() {
             </div>
           </SurfaceCard>
 
-          <SurfaceCard>
+          <SurfaceCard className="reveal-up reveal-delay-2">
             <SectionLabel>Source Feeds</SectionLabel>
             <div className="space-y-3">
               {[
@@ -151,7 +151,10 @@ export default function TimelinePage() {
             </div>
           </SurfaceCard>
 
-          <SurfaceCard className="bg-[linear-gradient(135deg,rgba(255,223,159,0.52),rgba(255,255,255,0.96))]">
+          <SurfaceCard
+            tone="warm"
+            className="reveal-up reveal-delay-3 bg-[linear-gradient(135deg,rgba(255,223,159,0.52),rgba(255,255,255,0.96))]"
+          >
             <SectionLabel>Routing Rule</SectionLabel>
             <p className="text-sm leading-7 text-on-surface-variant">
               Contact identity, property address, and project affinity should

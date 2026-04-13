@@ -21,15 +21,15 @@ export default function SiteVisitPage() {
     >
       <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
         <div className="space-y-6">
-          <SurfaceCard className="overflow-hidden p-0">
+          <SurfaceCard tone="dark" className="reveal-up overflow-hidden p-0">
             <div className="relative h-[26rem] bg-[radial-gradient(circle_at_30%_20%,rgba(161,212,148,0.9),transparent_18%),radial-gradient(circle_at_70%_35%,rgba(45,90,39,0.75),transparent_25%),linear-gradient(160deg,#6f9258,#d8e4c8)]">
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:26px_26px] opacity-50" />
-              <div className="absolute bottom-5 left-5 right-5 rounded-[1.5rem] bg-surface-container-lowest/90 p-4 shadow-[0_18px_40px_rgba(25,28,30,0.12)] backdrop-blur">
-                <div className="text-xs font-semibold uppercase tracking-[0.24em] text-secondary">
+              <div className="absolute bottom-5 left-5 right-5 rounded-[1.6rem] bg-white/10 p-5 shadow-[0_18px_40px_rgba(25,28,30,0.12)] backdrop-blur">
+                <div className="text-xs font-semibold uppercase tracking-[0.24em] text-white/55">
                   Current location
                 </div>
-                <div className="mt-2 flex items-center gap-2 text-lg font-semibold text-on-surface">
-                  <MapPinned className="size-4 text-primary" />
+                <div className="mt-3 flex items-center gap-2 text-xl font-semibold text-white">
+                  <MapPinned className="size-4 text-secondary-fixed" />
                   {siteVisitData.location}
                 </div>
               </div>
@@ -40,7 +40,7 @@ export default function SiteVisitPage() {
             {siteVisitData.actions.map((action) => (
               <SurfaceCard
                 key={action.title}
-                className="panel-hover h-full bg-surface-container-low"
+                className="panel-hover reveal-up reveal-delay-1 h-full bg-surface-container-low"
               >
                 <div className="flex size-12 items-center justify-center rounded-2xl bg-surface-container-lowest text-primary">
                   {action.title.includes("Voice") ? (
@@ -61,7 +61,7 @@ export default function SiteVisitPage() {
         </div>
 
         <div className="space-y-6">
-          <SurfaceCard>
+          <SurfaceCard tone="warm" className="reveal-up reveal-delay-1">
             <div className="flex items-center justify-between gap-4">
               <div>
                 <SectionLabel>Master Parameters</SectionLabel>
@@ -99,7 +99,7 @@ export default function SiteVisitPage() {
             </div>
           </SurfaceCard>
 
-          <SurfaceCard>
+          <SurfaceCard className="reveal-up reveal-delay-2">
             <SectionLabel>AI Extraction Status</SectionLabel>
             <div className="space-y-3">
               {siteVisitData.aiSummary.map((summary) => (
@@ -121,7 +121,10 @@ export default function SiteVisitPage() {
             </div>
           </SurfaceCard>
 
-          <SurfaceCard className="bg-[linear-gradient(135deg,rgba(188,240,174,0.55),rgba(255,255,255,0.96))]">
+          <SurfaceCard
+            tone="warm"
+            className="reveal-up reveal-delay-3 bg-[linear-gradient(135deg,rgba(188,240,174,0.4),rgba(255,255,255,0.96))]"
+          >
             <div className="flex items-start gap-4">
               <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-surface-container-lowest text-primary">
                 <Sparkles className="size-5" />

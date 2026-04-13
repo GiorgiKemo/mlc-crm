@@ -57,23 +57,101 @@ export function AppShell({
 
   return (
     <div className="min-h-screen pb-24">
-      <header className="glass-panel sticky top-0 z-50 border-b border-black/5">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
-            <div className="flex size-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-              <Leaf className="size-5" />
-            </div>
-            <div>
-              <div className="font-headline text-lg font-semibold text-primary">
-                Arbor &amp; Earth
+      <header className="sticky top-0 z-50 px-3 pt-3 sm:px-5">
+        <div className="glass-panel mx-auto max-w-[90rem] rounded-[2rem] border border-white/10">
+          <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+            <div className="flex items-center gap-3">
+              <div className="flex size-12 items-center justify-center rounded-[1.35rem] bg-[linear-gradient(135deg,rgba(240,211,157,0.28),rgba(255,255,255,0.08))] text-secondary-fixed">
+                <Leaf className="size-5" />
               </div>
-              <div className="text-xs text-on-surface-variant">
-                MLC Group CRM development workspace
+              <div>
+                <div className="font-headline text-[1.45rem] font-semibold tracking-[-0.03em] text-white">
+                  Arbor &amp; Earth
+                </div>
+                <div className="text-xs uppercase tracking-[0.16em] text-white/55">
+                  MLC Group CRM
+                </div>
+              </div>
+            </div>
+
+            <nav className="hidden items-center gap-1.5 rounded-full border border-white/10 bg-white/5 p-1.5 md:flex">
+              {nav.map(({ href, label, icon: Icon }) => {
+                const active = href === currentPath;
+
+                return (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={`inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium transition duration-300 ${
+                      active
+                        ? "bg-surface-container-lowest text-primary shadow-[0_18px_40px_rgba(8,14,12,0.18)]"
+                        : "text-white/70 hover:text-white"
+                    }`}
+                  >
+                    <Icon className="size-4" />
+                    {label}
+                  </Link>
+                );
+              })}
+            </nav>
+
+            <div className="hidden items-center gap-3 lg:flex">
+              {mode === "crew" ? (
+                <StatusPill
+                  tone="secondary"
+                  icon={Shield}
+                  className="border-white/10 bg-white/5 text-white"
+                >
+                  Crew access scoped to current assignment
+                </StatusPill>
+              ) : (
+                <StatusPill
+                  tone="primary"
+                  icon={Bot}
+                  className="border-white/10 bg-white/5 text-white"
+                >
+                  Dev hosted on your GitHub, Vercel, and Supabase
+                </StatusPill>
+              )}
+              <div className="flex size-11 items-center justify-center rounded-full border border-white/10 bg-white/10 text-sm font-semibold text-white">
+                GK
               </div>
             </div>
           </div>
+        </div>
+      </header>
 
-          <nav className="hidden items-center gap-2 rounded-full bg-surface-container-low px-2 py-2 md:flex">
+      <main className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 pb-28 pt-10 sm:px-6 lg:px-8">
+        {(eyebrow || title || subtitle || action) && (
+          <section className="reveal-up grid gap-6 xl:grid-cols-[minmax(0,1fr)_auto] xl:items-end">
+            <div className="max-w-4xl">
+              {eyebrow ? (
+                <div className="mb-4 inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-on-surface-variant/75">
+                  <span>{eyebrow}</span>
+                  <span className="h-px w-20 bg-current/20" />
+                </div>
+              ) : null}
+              {title ? (
+                <h1 className="max-w-4xl font-headline text-5xl font-semibold text-on-background sm:text-6xl xl:text-[4.75rem]">
+                  {title}
+                </h1>
+              ) : null}
+              {subtitle ? (
+                <p className="mt-5 max-w-3xl text-base leading-8 text-on-surface-variant sm:text-lg">
+                  {subtitle}
+                </p>
+              ) : null}
+            </div>
+            {action ? <div className="xl:justify-self-end">{action}</div> : null}
+          </section>
+        )}
+
+        {children}
+      </main>
+
+      <nav className="fixed inset-x-0 bottom-0 z-50 px-3 pb-5 pt-3 md:hidden">
+        <div className="glass-panel mx-auto max-w-md rounded-[2rem] border border-white/10 px-3 py-3">
+          <div className="flex items-center justify-around rounded-[1.65rem] border border-white/10 bg-white/5 px-2 py-2">
             {nav.map(({ href, label, icon: Icon }) => {
               const active = href === currentPath;
 
@@ -81,10 +159,10 @@ export function AppShell({
                 <Link
                   key={href}
                   href={href}
-                  className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium transition ${
+                  className={`flex min-w-[88px] flex-col items-center gap-1 rounded-2xl px-4 py-2.5 text-[11px] font-medium transition ${
                     active
-                      ? "bg-surface-container-lowest text-primary shadow-[0_10px_30px_rgba(21,66,18,0.08)]"
-                      : "text-on-surface-variant hover:text-primary"
+                      ? "bg-surface-container-lowest text-primary shadow-[0_14px_30px_rgba(8,14,12,0.18)]"
+                      : "text-white/70"
                   }`}
                 >
                   <Icon className="size-4" />
@@ -92,79 +170,14 @@ export function AppShell({
                 </Link>
               );
             })}
-          </nav>
 
-          <div className="hidden items-center gap-3 lg:flex">
             {mode === "crew" ? (
-              <StatusPill tone="secondary" icon={Shield}>
-                Crew access scoped to current assignment
-              </StatusPill>
-            ) : (
-              <StatusPill tone="primary" icon={Bot}>
-                Dev hosted on your GitHub, Vercel, and Supabase
-              </StatusPill>
-            )}
-            <div className="flex size-11 items-center justify-center rounded-full bg-primary text-sm font-semibold text-on-primary">
-              GK
-            </div>
+              <div className="flex flex-col items-center gap-1 rounded-2xl px-4 py-2.5 text-[11px] font-medium text-white/60">
+                <ClipboardList className="size-4" />
+                Private
+              </div>
+            ) : null}
           </div>
-        </div>
-      </header>
-
-      <main className="mx-auto flex w-full max-w-7xl flex-col gap-8 px-4 pb-28 pt-8 sm:px-6 lg:px-8">
-        {(eyebrow || title || subtitle || action) && (
-          <section className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-3xl">
-              {eyebrow ? (
-                <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.24em] text-on-surface-variant/70">
-                  {eyebrow}
-                </div>
-              ) : null}
-              {title ? (
-                <h1 className="font-headline text-4xl font-semibold tracking-tight text-on-background sm:text-5xl">
-                  {title}
-                </h1>
-              ) : null}
-              {subtitle ? (
-                <p className="mt-3 max-w-2xl text-sm leading-6 text-on-surface-variant sm:text-base">
-                  {subtitle}
-                </p>
-              ) : null}
-            </div>
-            {action ? <div className="shrink-0">{action}</div> : null}
-          </section>
-        )}
-
-        {children}
-      </main>
-
-      <nav className="glass-panel fixed inset-x-0 bottom-0 z-50 border-t border-black/5 px-3 pb-5 pt-3 md:hidden">
-        <div className="mx-auto flex max-w-md items-center justify-around rounded-[1.75rem] bg-surface-container-low px-2 py-2">
-          {nav.map(({ href, label, icon: Icon }) => {
-            const active = href === currentPath;
-
-            return (
-              <Link
-                key={href}
-                href={href}
-                className={`flex min-w-[88px] flex-col items-center gap-1 rounded-2xl px-4 py-2 text-[11px] font-medium transition ${
-                  active
-                    ? "bg-surface-container-lowest text-primary shadow-[0_10px_30px_rgba(21,66,18,0.08)]"
-                    : "text-on-surface-variant"
-                }`}
-              >
-                <Icon className="size-4" />
-                {label}
-              </Link>
-            );
-          })}
-
-          {mode === "crew" ? (
-            <div className="flex flex-col items-center gap-1 rounded-2xl px-4 py-2 text-[11px] font-medium text-on-surface-variant">
-              <ClipboardList className="size-4" />
-              Private
-            </div>
-          ) : null}
         </div>
       </nav>
     </div>

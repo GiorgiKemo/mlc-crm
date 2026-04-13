@@ -30,55 +30,62 @@ export default function CrewPage() {
     >
       <div className="grid gap-6 xl:grid-cols-[1.05fr_0.95fr]">
         <div className="space-y-6">
-          <SurfaceCard>
+          <SurfaceCard tone="warm" className="reveal-up">
             <SectionLabel>Daily Progress</SectionLabel>
             <div className="mb-5 flex items-end justify-between gap-4">
               <div>
-                <div className="text-3xl font-semibold text-on-surface">
+                <div className="text-4xl font-semibold text-on-surface">
                   {morningPrompt.taskLabel}
                 </div>
-                <p className="mt-2 text-sm text-on-surface-variant">
+                <p className="mt-3 max-w-lg text-sm leading-7 text-on-surface-variant">
                   {morningPrompt.note}
                 </p>
               </div>
-              <div className="text-right text-3xl font-semibold text-primary">
+              <div className="text-right text-4xl font-semibold text-primary">
                 {morningPrompt.progress}%
               </div>
             </div>
             <ProgressTrack value={morningPrompt.progress} />
           </SurfaceCard>
 
-          <SurfaceCard className="overflow-hidden bg-[radial-gradient(circle_at_top_right,rgba(254,206,101,0.28),transparent_30%),linear-gradient(135deg,rgba(21,66,18,0.04),rgba(45,90,39,0.12))]">
+          <SurfaceCard
+            tone="dark"
+            className="reveal-up reveal-delay-1 shimmer-border overflow-hidden"
+          >
             <div className="flex flex-wrap items-start justify-between gap-4">
               <div className="max-w-xl">
-                <StatusPill tone="secondary" icon={LocateFixed}>
+                <StatusPill
+                  tone="secondary"
+                  icon={LocateFixed}
+                  className="border-white/10 bg-white/10 text-white"
+                >
                   Next stop
                 </StatusPill>
-                <h2 className="mt-5 text-4xl font-semibold text-primary">
+                <h2 className="mt-5 text-5xl font-semibold text-white">
                   {morningPrompt.nextStop.name}
                 </h2>
-                <p className="mt-3 text-sm leading-7 text-on-surface-variant">
+                <p className="mt-4 text-base leading-8 text-white/70">
                   {morningPrompt.nextStop.address}
                 </p>
-                <div className="mt-5 flex flex-wrap gap-4 text-sm font-semibold text-on-surface">
-                  <span className="rounded-full bg-surface-container-lowest px-4 py-2">
+                <div className="mt-6 flex flex-wrap gap-4 text-sm font-semibold text-white">
+                  <span className="rounded-full bg-white/10 px-4 py-2">
                     ETA {morningPrompt.nextStop.eta}
                   </span>
-                  <span className="rounded-full bg-surface-container-lowest px-4 py-2">
+                  <span className="rounded-full bg-white/10 px-4 py-2">
                     {morningPrompt.nextStop.distance}
                   </span>
                 </div>
-                <div className="mt-6 rounded-[1.5rem] bg-surface-container-lowest/80 p-5">
-                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-on-surface-variant">
+                <div className="mt-7 rounded-[1.6rem] bg-white/10 p-5">
+                  <div className="text-xs font-semibold uppercase tracking-[0.2em] text-white/55">
                     Work order
                   </div>
-                  <div className="mt-2 text-base font-semibold text-on-surface">
+                  <div className="mt-2 text-lg font-semibold text-white">
                     {morningPrompt.nextStop.order}
                   </div>
                 </div>
               </div>
 
-              <div className="grid gap-3 rounded-[1.75rem] bg-surface-container-lowest/70 p-4">
+              <div className="grid gap-3 rounded-[1.75rem] border border-white/10 bg-white/10 p-4 backdrop-blur-sm">
                 <ActionLink href="/site-visit" className="w-full justify-center">
                   Start field capture
                 </ActionLink>
@@ -93,7 +100,7 @@ export default function CrewPage() {
             </div>
           </SurfaceCard>
 
-          <SurfaceCard className="overflow-hidden p-0">
+          <SurfaceCard className="reveal-up reveal-delay-2 overflow-hidden p-0">
             <div className="relative h-72 bg-[radial-gradient(circle_at_25%_20%,rgba(161,212,148,0.65),transparent_18%),radial-gradient(circle_at_70%_45%,rgba(45,90,39,0.45),transparent_22%),linear-gradient(140deg,#dce5d7,#edf0ec)]">
               <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(rgba(255,255,255,0.18)_1px,transparent_1px)] bg-[size:32px_32px] opacity-50" />
               <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-4 rounded-[1.5rem] bg-surface-container-lowest/90 p-4 shadow-[0_20px_40px_rgba(25,28,30,0.08)] backdrop-blur">
@@ -115,7 +122,7 @@ export default function CrewPage() {
         </div>
 
         <div className="space-y-6">
-          <SurfaceCard>
+          <SurfaceCard className="reveal-up reveal-delay-1">
             <div className="mb-5 flex items-center gap-2">
               <Compass className="size-4 text-primary" />
               <h2 className="text-2xl font-semibold text-on-surface">
@@ -130,7 +137,7 @@ export default function CrewPage() {
                     item.active
                       ? "bg-surface-container-lowest border-l-4 border-secondary shadow-[0_18px_35px_rgba(121,89,0,0.08)]"
                       : item.done
-                        ? "bg-primary/8"
+                        ? "bg-primary/10"
                         : "bg-surface-container-low"
                   }`}
                 >
@@ -167,7 +174,7 @@ export default function CrewPage() {
             </div>
           </SurfaceCard>
 
-          <SurfaceCard>
+          <SurfaceCard className="reveal-up reveal-delay-2">
             <SectionLabel>Visible To Crew</SectionLabel>
             <div className="space-y-3">
               {morningPrompt.accessScope.map((scope) => (
@@ -181,7 +188,10 @@ export default function CrewPage() {
             </div>
           </SurfaceCard>
 
-          <SurfaceCard className="bg-[linear-gradient(135deg,rgba(255,218,214,0.85),rgba(255,255,255,0.96))]">
+          <SurfaceCard
+            tone="warm"
+            className="reveal-up reveal-delay-3 bg-[linear-gradient(135deg,rgba(255,218,214,0.78),rgba(255,248,241,0.96))]"
+          >
             <div className="flex items-start gap-4">
               <div className="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-surface-container-lowest text-primary">
                 <Shield className="size-5" />
