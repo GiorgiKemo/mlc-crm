@@ -185,7 +185,7 @@ export const morningPrompt = {
 
 export const siteVisitData = {
   title: "Active Field Assessment",
-  subtitle: "Oakwood Estate • Phase 1 Discovery",
+  subtitle: "Oakwood Estate - Phase 1 Discovery",
   location: "42 Oakwood Lane, North Sector",
   actions: [
     {
@@ -199,8 +199,11 @@ export const siteVisitData = {
   ],
   parameters: [
     { label: "Acreage", value: "12.4 acres" },
-    { label: "Soil Grade", value: "Grade C • clay-heavy mix" },
-    { label: "Materials Requirement", value: "Harvest oak timber, limestone slabs, river stone mix" },
+    { label: "Soil Grade", value: "Grade C - clay-heavy mix" },
+    {
+      label: "Materials Requirement",
+      value: "Harvest oak timber, limestone slabs, river stone mix",
+    },
     { label: "Access Points", value: "8 mapped points" },
     { label: "Interval Snapshot", value: "45 min cadence" },
     { label: "Voice Queue", value: "3 memos awaiting extraction" },
@@ -224,7 +227,7 @@ export const timelineEntries = [
       "Correspondence regarding the northern acreage development. The client requested sustainable irrigation and a specialized apothecary garden.",
     attachment: {
       label: "Site_Survey_Rev_A.pdf",
-      meta: "4.2 MB • Added by Studio Admin",
+      meta: "4.2 MB - Added by Studio Admin",
     },
   },
   {
@@ -269,13 +272,25 @@ export const estimateData = {
     "A comprehensive hardscape and sustainable flora installation package balancing architectural symmetry and water-wise irrigation.",
   total: "$42,850.00",
   margin: "34.2%",
-  range: "32% – 40%",
+  range: "32% - 40%",
   grossProfit: "$14,655.70",
   directCosts: "$28,194.30",
   materials: [
-    { name: "Reclaimed Granite Pavers", quantity: "1,250 sqft", price: "$15,552.70" },
-    { name: "High-Traction Mason Sand", quantity: "12 tons", price: "$2,487.50" },
-    { name: "Recycled Base Gravel", quantity: "35 yd", price: "$3,825.15" },
+    {
+      name: "Reclaimed Granite Pavers",
+      quantity: "1,250 sqft",
+      price: "$15,552.70",
+    },
+    {
+      name: "High-Traction Mason Sand",
+      quantity: "12 tons",
+      price: "$2,487.50",
+    },
+    {
+      name: "Recycled Base Gravel",
+      quantity: "35 yd",
+      price: "$3,825.15",
+    },
   ],
   labor: {
     crewSize: "04",

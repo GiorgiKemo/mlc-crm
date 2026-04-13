@@ -19,25 +19,27 @@ export default function EstimatingPage() {
     >
       <div className="grid gap-6 xl:grid-cols-[0.95fr_1.05fr]">
         <div className="space-y-6">
-          <SurfaceCard>
-            <SectionLabel>Total Project Estimate</SectionLabel>
-            <div className="text-5xl font-semibold tracking-tight text-primary">
+          <SurfaceCard tone="dark" className="reveal-up shimmer-border">
+            <SectionLabel className="text-white/[0.72]">
+              Total Project Estimate
+            </SectionLabel>
+            <div className="text-6xl font-semibold tracking-tight text-white">
               {estimateData.total}
             </div>
             <div className="mt-5 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-[1.5rem] bg-surface-container-low px-5 py-4">
-                <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-on-surface-variant">
+              <div className="rounded-[1.5rem] bg-white/10 px-5 py-4">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/55">
                   Profit Margin
                 </div>
-                <div className="mt-2 text-2xl font-semibold text-on-surface">
+                <div className="mt-2 text-2xl font-semibold text-white">
                   {estimateData.margin}
                 </div>
               </div>
-              <div className="rounded-[1.5rem] bg-surface-container-low px-5 py-4">
-                <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-on-surface-variant">
+              <div className="rounded-[1.5rem] bg-white/10 px-5 py-4">
+                <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/55">
                   Optimization Range
                 </div>
-                <div className="mt-2 text-2xl font-semibold text-on-surface">
+                <div className="mt-2 text-2xl font-semibold text-white">
                   {estimateData.range}
                 </div>
               </div>
@@ -47,16 +49,18 @@ export default function EstimatingPage() {
                 value={34.2}
                 label="Gross profit"
                 helper={estimateData.grossProfit}
+                tone="inverted"
               />
               <ProgressTrack
                 value={65.8}
                 label="Direct costs"
                 helper={estimateData.directCosts}
+                tone="inverted"
               />
             </div>
           </SurfaceCard>
 
-          <SurfaceCard>
+          <SurfaceCard className="reveal-up reveal-delay-1">
             <SectionLabel>Material Breakdown</SectionLabel>
             <div className="space-y-4">
               {estimateData.materials.map((item) => (
@@ -84,7 +88,7 @@ export default function EstimatingPage() {
         </div>
 
         <div className="space-y-6">
-          <SurfaceCard>
+          <SurfaceCard tone="warm" className="reveal-up reveal-delay-1">
             <div className="flex items-center gap-2">
               <Calculator className="size-4 text-primary" />
               <h2 className="text-3xl font-semibold text-on-surface">
@@ -119,7 +123,7 @@ export default function EstimatingPage() {
             </div>
           </SurfaceCard>
 
-          <SurfaceCard>
+          <SurfaceCard className="reveal-up reveal-delay-2">
             <SectionLabel>Generated Outputs</SectionLabel>
             <div className="space-y-3">
               {estimateData.documents.map((document) => (
@@ -142,7 +146,7 @@ export default function EstimatingPage() {
             </div>
           </SurfaceCard>
 
-          <SurfaceCard className="overflow-hidden p-0">
+          <SurfaceCard className="reveal-up reveal-delay-3 overflow-hidden p-0">
             <div className="relative h-72 bg-[linear-gradient(150deg,#6b7f63,#d6dccf)]">
               <img
                 src="/stitch/estimation-engine.png"
@@ -150,7 +154,7 @@ export default function EstimatingPage() {
                 className="absolute inset-0 h-full w-full object-cover object-top opacity-30"
               />
               <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(0,0,0,0.38))]" />
-              <div className="absolute bottom-5 left-5 right-5 rounded-[1.5rem] bg-surface-container-lowest/88 p-4 backdrop-blur">
+              <div className="absolute bottom-5 left-5 right-5 rounded-[1.5rem] bg-surface-container-lowest/90 p-4 backdrop-blur">
                 <div className="flex items-center gap-2 text-sm font-semibold text-primary">
                   <Sparkles className="size-4" />
                   Project visualization
@@ -163,7 +167,10 @@ export default function EstimatingPage() {
             </div>
           </SurfaceCard>
 
-          <SurfaceCard className="bg-[linear-gradient(135deg,rgba(188,240,174,0.55),rgba(255,255,255,0.96))]">
+          <SurfaceCard
+            tone="warm"
+            className="reveal-up reveal-delay-4 bg-[linear-gradient(135deg,rgba(188,240,174,0.4),rgba(255,255,255,0.96))]"
+          >
             <SectionLabel>Calculation Notes</SectionLabel>
             <div className="space-y-3">
               {estimateData.notes.map((note) => (
