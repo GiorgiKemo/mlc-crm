@@ -93,13 +93,22 @@ export default function LandingPage() {
           </div>
 
           <div className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
-            <a href="#features" className="transition-colors hover:text-foreground">
+            <a
+              href="#features"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
               Features
             </a>
-            <a href="#about" className="transition-colors hover:text-foreground">
+            <a
+              href="#about"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
               About
             </a>
-            <a href="#testimonials" className="transition-colors hover:text-foreground">
+            <a
+              href="#testimonials"
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
               Testimonials
             </a>
           </div>
