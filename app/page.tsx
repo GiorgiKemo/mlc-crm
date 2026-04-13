@@ -106,7 +106,7 @@ export default function LandingPage() {
 
           <Link
             href="/dashboard"
-            className="inline-flex h-9 items-center justify-center gap-2 rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex h-9 items-center justify-center gap-2 rounded-md bg-[hsl(130_40%_25%)] px-4 text-sm font-semibold text-white transition-colors hover:bg-[hsl(130_40%_22%)]"
           >
             Open CRM
             <ArrowRight className="h-4 w-4" />
@@ -171,14 +171,14 @@ export default function LandingPage() {
           >
             <Link
               href="/dashboard"
-              className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-primary px-8 text-base font-semibold text-primary-foreground shadow-lg shadow-primary/20 transition-colors hover:bg-primary/90"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[hsl(130_40%_25%)] px-8 text-base font-semibold text-white shadow-lg shadow-[0_18px_36px_rgba(38,89,47,0.24)] transition-colors hover:bg-[hsl(130_40%_22%)]"
             >
               Enter CRM
               <ArrowRight className="h-5 w-5" />
             </Link>
             <a
               href="#features"
-              className="inline-flex h-12 items-center justify-center rounded-md border border-border/60 px-8 text-base font-semibold text-foreground transition-colors hover:bg-muted"
+              className="inline-flex h-12 items-center justify-center rounded-md border border-[rgba(24,60,52,0.12)] bg-white px-8 text-base font-semibold text-[hsl(220_20%_14%)] transition-colors hover:bg-[rgba(248,249,250,1)]"
             >
               See Features
             </a>
@@ -328,17 +328,17 @@ export default function LandingPage() {
           viewport={{ once: true }}
           custom={0}
           variants={fadeUp}
-          className="mx-auto max-w-3xl rounded-3xl bg-gradient-to-br from-primary to-primary/80 p-12 text-center text-primary-foreground"
+          className="mx-auto max-w-3xl rounded-3xl bg-gradient-to-br from-[hsl(130_40%_25%)] to-[hsl(130_30%_38%)] p-12 text-center text-white"
         >
           <h2 className="font-display mb-4 text-3xl font-bold md:text-4xl">
             Ready to Run Your Operation?
           </h2>
-          <p className="mx-auto mb-8 max-w-md text-lg text-primary-foreground/80">
+          <p className="mx-auto mb-8 max-w-md text-lg text-[rgba(255,255,255,0.82)]">
             Stop losing estimates in your inbox. Start managing your business from one place.
           </p>
           <Link
             href="/dashboard"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-secondary px-8 text-base font-semibold text-secondary-foreground transition-colors hover:bg-secondary/80"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-[rgba(255,255,255,0.92)] px-8 text-base font-semibold text-[hsl(220_20%_14%)] transition-colors hover:bg-white"
           >
             Open CRM
             <ArrowRight className="h-5 w-5" />
